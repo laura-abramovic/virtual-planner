@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@color/background_main">
+
+    <ImageView
+        android:id="@+id/HomeScreenLogoId"
+        android:src="@drawable/main_logo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="180dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/HomeScreenStartButton"
+            android:text="@string/home_screen_button_start"
+            android:textSize="24dp"
+            android:textStyle="bold"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="100dp"
+            android:layout_below="@id/HomeScreenLogoId"
+            android:backgroundTint="@color/button_main"
+            android:textColor="@color/button_text_main"
+            android:layout_width="300dp"
+            android:layout_height="70dp"/>
+
+<!--    <Button-->
+<!--        android:id="@+id/HomeScreenLoginButtonId"-->
+<!--        android:text="@string/home_screen_button_login"-->
+<!--        android:textSize="24dp"-->
+<!--        android:textStyle="bold"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:layout_marginTop="100dp"-->
+<!--        android:layout_below="@id/HomeScreenLogoId"-->
+<!--        android:backgroundTint="@color/button_main"-->
+<!--        android:textColor="@color/button_text_main"-->
+<!--        android:layout_width="300dp"-->
+<!--        android:layout_height="70dp"/>-->
+
+<!--    <Button-->
+<!--        android:id="@+id/HomeScreenRegisterButtonId"-->
+<!--        android:text="@string/home_screen_button_register"-->
+<!--        android:textSize="24dp"-->
+<!--        android:textStyle="bold"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:layout_below="@id/HomeScreenLoginButtonId"-->
+<!--        android:layout_marginTop="40dp"-->
+<!--        android:backgroundTint="@color/button_main"-->
+<!--        android:textColor="@color/button_text_main"-->
+<!--        android:layout_width="300dp"-->
+<!--        android:layout_height="70dp"/>-->
+
+</RelativeLayout>
