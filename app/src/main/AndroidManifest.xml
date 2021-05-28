@@ -9,7 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.VirtualPlanner">
-        <activity android:name=".MainActivity"
+        <activity
+            android:name=".visuals.ToDoListActivity"
+            android:label="@string/title_activity_to_do_list"
+            android:theme="@style/Theme.VirtualPlanner.NoActionBar"></activity>
+        <activity android:name=".visuals.NotesActivity" />
+        <activity android:name=".visuals.DailyActivity" />
+        <activity android:name=".visuals.CalendarActivity" />
+        <activity
+            android:name=".MainActivity"
             android:theme="@style/Theme.Design.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

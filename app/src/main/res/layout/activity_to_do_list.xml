@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".visuals.ToDoListActivity"
+    android:background="@color/background_main">
+
+    <ImageView
+        android:id="@+id/sunIconId"
+        android:src="@drawable/day_icon"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="20dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"/>
+
+    <ImageView
+        android:id="@+id/calendarIconId"
+        android:src="@drawable/calendar_icon"
+        android:layout_toRightOf="@id/sunIconId"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="20dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp" />
+
+    <ImageView
+        android:id="@+id/toDoListIconId"
+        android:src="@drawable/to_do_list_icon"
+        android:layout_toRightOf="@id/calendarIconId"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="20dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp" />
+
+    <ImageView
+        android:id="@+id/notesListIcon"
+        android:src="@drawable/sticky_notes_icon"
+        android:layout_toRightOf="@id/toDoListIconId"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="20dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:backgroundTint="@color/button_main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="@dimen/fab_margin"
+        app:srcCompat="@android:drawable/ic_input_add" />
+
+</RelativeLayout>
