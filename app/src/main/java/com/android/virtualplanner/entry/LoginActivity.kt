@@ -7,6 +7,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.android.virtualplanner.R
+import com.google.android.material.textfield.TextInputEditText
 
 class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -14,9 +15,9 @@ class LoginActivity : AppCompatActivity() {
         hideActionBar()
         setContentView(R.layout.activity_login)
 
-        val forgotPassLink = findViewById<TextView>(R.id.forgotPasswordTextId)
-        val singInButton = findViewById<Button>(R.id.singInButtonId)
-        val singUpLink = findViewById<TextView>(R.id.bottomLinkId)
+        val forgotPassLink = findViewById<TextView>(R.id.loginForgotPasswordTextId)
+        val singInButton = findViewById<Button>(R.id.loginSingInButtonId)
+        val singUpLink = findViewById<TextView>(R.id.loginBottomLinkId)
 
         forgotPassLink.setOnClickListener {
             Toast.makeText(this, "We will send you an email once we implement that", Toast.LENGTH_SHORT).show()
@@ -37,7 +38,5 @@ class LoginActivity : AppCompatActivity() {
             this.supportActionBar!!.hide()
         } catch (e: NullPointerException) {}
     }
-
-
 
 }

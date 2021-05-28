@@ -19,7 +19,7 @@
         android:textStyle="bold" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/usernameTextFieldId"
+        android:id="@+id/loginUsernameTextFieldId"
         android:hint="@string/login_screen_username_hint"
         android:layout_below="@id/loginTitleId"
         android:layout_centerHorizontal="true"
@@ -36,9 +36,9 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/passwordTextFieldId"
+        android:id="@+id/loginPasswordTextFieldId"
         android:hint="@string/login_screen_password_hint"
-        android:layout_below="@id/usernameTextFieldId"
+        android:layout_below="@id/loginUsernameTextFieldId"
         android:layout_centerHorizontal="true"
         app:endIconMode="password_toggle"
         app:passwordToggleEnabled="true"
@@ -56,10 +56,10 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
-        android:id="@+id/forgotPasswordTextId"
-        android:layout_below="@id/passwordTextFieldId"
+        android:id="@+id/loginForgotPasswordTextId"
+        android:layout_below="@id/loginPasswordTextFieldId"
         android:text="@string/login_screen_forgot_password"
-        android:layout_alignRight="@id/passwordTextFieldId"
+        android:layout_alignRight="@id/loginPasswordTextFieldId"
         android:textSize="18dp"
         android:layout_marginTop="10dp"
         android:textColor="@color/link_main"
@@ -67,26 +67,26 @@
         android:layout_height="wrap_content"/>
 
     <Button
-        android:id="@+id/singInButtonId"
+        android:id="@+id/loginSingInButtonId"
         android:text="@string/login_screen_button_text"
         android:textColor="@color/button_text_main"
         android:backgroundTint="@color/button_main"
         android:textSize="20dp"
         android:layout_marginTop="60dp"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/passwordTextFieldId"
+        android:layout_below="@id/loginPasswordTextFieldId"
         android:layout_width="300dp"
         android:layout_height="56dp"/>
 
     <LinearLayout
         android:layout_marginTop="30dp"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/singInButtonId"
+        android:layout_below="@id/loginSingInButtonId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/bottomTextId"
+            android:id="@+id/loginBottomTextId"
             android:text="@string/login_screen_bottom_text"
             android:textColor="@color/text_main"
             android:textSize="18dp"
@@ -94,7 +94,7 @@
             android:layout_height="wrap_content" />
 
         <TextView
-            android:id="@+id/bottomLinkId"
+            android:id="@+id/loginBottomLinkId"
             android:text="@string/login_screen_bottom_link"
             android:textColor="@color/link_main"
             android:textSize="18dp"
