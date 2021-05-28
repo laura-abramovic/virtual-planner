@@ -1,9 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".entry.RegisterActivity">
+    tools:context=".entry.RegisterActivity"
+    android:background="@color/background_main">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/regTitleId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="120dp"
+        android:text="@string/register_screen_main_text"
+        android:textColor="@color/text_main"
+        android:textSize="60dp"
+        android:textStyle="bold" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/regUsernameTextFieldId"
+        android:hint="@string/login_screen_username_hint"
+        android:layout_below="@id/regTitleId"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:singleLine="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/regPasswordTextFieldId"
+        android:hint="@string/login_screen_password_hint"
+        android:layout_below="@id/regUsernameTextFieldId"
+        android:layout_centerHorizontal="true"
+        app:endIconMode="password_toggle"
+        app:passwordToggleEnabled="true"
+        android:layout_marginTop="40dp"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:singleLine="true"
+            android:inputType="textPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/regRepeatPasswordTextFieldId"
+        android:hint="@string/register_screen_repeat_password_hint"
+        android:layout_below="@id/regPasswordTextFieldId"
+        android:layout_centerHorizontal="true"
+        app:endIconMode="password_toggle"
+        app:passwordToggleEnabled="true"
+        android:layout_marginTop="40dp"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:singleLine="true"
+            android:inputType="textPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/regSingUpButtonId"
+        android:text="@string/register_screen_button_text"
+        android:textColor="@color/button_text_main"
+        android:backgroundTint="@color/button_main"
+        android:textSize="20dp"
+        android:layout_marginTop="40dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/regRepeatPasswordTextFieldId"
+        android:layout_width="300dp"
+        android:layout_height="56dp"/>
+
+    <LinearLayout
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/regSingUpButtonId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/regBottomTextId"
+            android:text="@string/register_screen_bottom_text"
+            android:textColor="@color/text_main"
+            android:textSize="18dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/regBottomLinkId"
+            android:text="@string/register_screen_bottom_link"
+            android:textColor="@color/link_main"
+            android:textSize="18dp"
+            android:layout_marginLeft="10dp"
+            android:clickable="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>

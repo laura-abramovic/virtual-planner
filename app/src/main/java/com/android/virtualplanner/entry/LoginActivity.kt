@@ -1,5 +1,6 @@
 package com.android.virtualplanner.entry
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
@@ -26,9 +27,8 @@ class LoginActivity : AppCompatActivity() {
         }
 
         singUpLink.setOnClickListener {
-            Toast.makeText(this, "Go to register", Toast.LENGTH_SHORT).show()
-//            val intent = Intent(this, RegisterActivity::class.java)
-//            startActivity(intent)
+            val intent = Intent(this, RegisterActivity::class.java)
+            startActivity(intent)
         }
     }
 
