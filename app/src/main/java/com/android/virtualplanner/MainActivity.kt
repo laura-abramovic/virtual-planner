@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
+import com.android.virtualplanner.entry.LoginActivity
+import com.android.virtualplanner.entry.RegisterActivity
 import com.android.virtualplanner.visuals.ToDoListActivity
 
 class MainActivity : AppCompatActivity() {
@@ -12,12 +14,17 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val getStartedButton = findViewById<Button>(R.id.HomeScreenStartButton)
+        val loginButton = findViewById<Button>(R.id.loginButtonId)
 
-        getStartedButton.setOnClickListener {
-            Toast.makeText(this, "Getting started", Toast.LENGTH_SHORT).show()
+        loginButton.setOnClickListener {
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+        }
 
-            val intent = Intent(this, ToDoListActivity::class.java)
+        val registerButton = findViewById<Button>(R.id.registerButtonId)
+
+        registerButton.setOnClickListener {
+            val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
         }
     }

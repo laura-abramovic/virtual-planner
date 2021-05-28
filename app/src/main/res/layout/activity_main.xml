@@ -15,43 +15,31 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
-        <Button
-            android:id="@+id/HomeScreenStartButton"
-            android:text="@string/home_screen_button_start"
-            android:textSize="24dp"
-            android:textStyle="bold"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="100dp"
-            android:layout_below="@id/HomeScreenLogoId"
-            android:backgroundTint="@color/button_main"
-            android:textColor="@color/button_text_main"
-            android:layout_width="300dp"
-            android:layout_height="70dp"/>
 
-<!--    <Button-->
-<!--        android:id="@+id/HomeScreenLoginButtonId"-->
-<!--        android:text="@string/home_screen_button_login"-->
-<!--        android:textSize="24dp"-->
-<!--        android:textStyle="bold"-->
-<!--        android:layout_centerHorizontal="true"-->
-<!--        android:layout_marginTop="100dp"-->
-<!--        android:layout_below="@id/HomeScreenLogoId"-->
-<!--        android:backgroundTint="@color/button_main"-->
-<!--        android:textColor="@color/button_text_main"-->
-<!--        android:layout_width="300dp"-->
-<!--        android:layout_height="70dp"/>-->
+    <Button
+        android:id="@+id/loginButtonId"
+        android:text="@string/home_screen_button_login"
+        android:textSize="24dp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:layout_below="@id/HomeScreenLogoId"
+        android:backgroundTint="@color/button_main"
+        android:textColor="@color/button_text_main"
+        android:layout_width="300dp"
+        android:layout_height="70dp"/>
 
-<!--    <Button-->
-<!--        android:id="@+id/HomeScreenRegisterButtonId"-->
-<!--        android:text="@string/home_screen_button_register"-->
-<!--        android:textSize="24dp"-->
-<!--        android:textStyle="bold"-->
-<!--        android:layout_centerHorizontal="true"-->
-<!--        android:layout_below="@id/HomeScreenLoginButtonId"-->
-<!--        android:layout_marginTop="40dp"-->
-<!--        android:backgroundTint="@color/button_main"-->
-<!--        android:textColor="@color/button_text_main"-->
-<!--        android:layout_width="300dp"-->
-<!--        android:layout_height="70dp"/>-->
+    <Button
+        android:id="@+id/registerButtonId"
+        android:text="@string/home_screen_button_register"
+        android:textSize="24dp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/loginButtonId"
+        android:layout_marginTop="40dp"
+        android:backgroundTint="@color/button_main"
+        android:textColor="@color/button_text_main"
+        android:layout_width="300dp"
+        android:layout_height="70dp"/>
 
 </RelativeLayout>

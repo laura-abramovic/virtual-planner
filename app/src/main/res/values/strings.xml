@@ -6,6 +6,22 @@
     <string name="home_screen_button_register">Register</string>
     <string name="home_screen_button_start">Get started!</string>
 
+    <!-- Strings used for login screen -->
+    <string name="login_screen_main_text">Login</string>
+    <string name="login_screen_username_hint">Username</string>
+    <string name="login_screen_password_hint">Password</string>
+    <string name="login_screen_bottom_text">Don\'t have an account?</string>
+    <string name="login_screen_bottom_link">Sing Up</string>
+    <string name="login_screen_button_text">Sing In</string>
+
+    <!-- Strings used for register screen -->
+    <string name="register_screen_main_text">Register</string>
+    <string name="register_screen_username_hint">Username</string>
+    <string name="register_screen_password_hint">Password</string>
+    <string name="register_screen_repeat_password_hint">Repeat password</string>
+    <string name="register_screen_bottom_text">Already have an account?</string>
+    <string name="register_screen_bottom_link">Sing In</string>
+
     <string name="to_do_list_title">To-do list</string>
 
 
@@ -18,4 +34,7 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="login_screen_forgot_password">Forgot password?</string>
+
+
 </resources>
