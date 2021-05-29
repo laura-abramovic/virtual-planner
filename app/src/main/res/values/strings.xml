@@ -1,11 +1,13 @@
 <resources>
     <string name="app_name">VirtualPlanner</string>
 
+    <!-- Strings used for multiple screens -->
+    <string name="empty_string"></string>
+
     <!-- Strings used for home screen -->
     <string name="home_screen_button_login">Login</string>
     <string name="home_screen_button_register">Register</string>
     <string name="home_screen_button_start">Get started!</string>
-
 
     <!-- Strings used for login screen -->
     <string name="login_screen_main_text">Login</string>
@@ -25,6 +27,8 @@
     <string name="register_screen_bottom_text">Already have an account?</string>
     <string name="register_screen_bottom_link">Sing In</string>
     <string name="register_screen_button_text">Sing Up</string>
+    <string name="register_screen_complexity_error_message">Minimum eight characters, at least one uppercase, one lowercase letter and one number</string>
+    <string name="register_screen_matching_error_message">Passwords must match!</string>
 
     <string name="to_do_list_title">To-do list</string>
 

@@ -14,4 +14,5 @@
     <color name="button_text_main">#14274e</color>
 
     <color name="link_main">#0000EE</color>
+    <color name="error_main">#E1341E</color>
 </resources>

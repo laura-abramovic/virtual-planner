@@ -47,6 +47,7 @@
         android:layout_height="wrap_content">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/regPasswordEditTextId"
             android:singleLine="true"
             android:inputType="textPassword"
             android:layout_width="match_parent"
@@ -54,6 +55,17 @@
             />
 
     </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/regComplexityErrorTextId"
+        android:textColor="@color/error_main"
+        android:text="@string/empty_string"
+        android:textSize="11dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/regPasswordTextFieldId"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content" />
+
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/regRepeatPasswordTextFieldId"
@@ -67,6 +79,7 @@
         android:layout_height="wrap_content">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/regRepeatPasswordEditTextId"
             android:singleLine="true"
             android:inputType="textPassword"
             android:layout_width="match_parent"
@@ -74,6 +87,16 @@
             />
 
     </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/regMatchingErrorTextId"
+        android:textColor="@color/error_main"
+        android:text="@string/empty_string"
+        android:textSize="11dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/regRepeatPasswordTextFieldId"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content" />
 
     <Button
         android:id="@+id/regSingUpButtonId"

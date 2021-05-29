@@ -3,10 +3,7 @@ package com.android.virtualplanner.entry
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import android.widget.Button
-import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import com.android.virtualplanner.R
@@ -22,8 +19,9 @@ class RegisterActivity : AppCompatActivity() {
         val singInLink = findViewById<TextView>(R.id.regBottomLinkId)
 
         singUpButton.setOnClickListener {
-            //checkInput()
-            Toast.makeText(this, "You are now singed up", Toast.LENGTH_SHORT).show()
+            if (checkInput()) {
+                Toast.makeText(this, "You are now singed up", Toast.LENGTH_SHORT).show()
+            }
         }
 
         singInLink.setOnClickListener {
@@ -38,21 +36,57 @@ class RegisterActivity : AppCompatActivity() {
         } catch (e: NullPointerException) {}
     }
 
-    private fun checkInput() {
+    private fun checkInput(): Boolean {
+        return checkUsername() && checkPassword()
+    }
 
-//        val passwordEditText = findViewById<TextInputEditText>(R.id.regPasswordTextFieldId)
-//        val repeatedPasswordEditText = findViewById<TextInputEditText>(R.id.regRepeatPasswordTextFieldId)
-//
-//        val password = passwordEditText.text.toString()
-//        val repeatedPassword = repeatedPasswordEditText.text.toString()
-//
-//        if (password == repeatedPassword) {
-//            Toast.makeText(this, "Passwords match", Toast.LENGTH_SHORT).show()
-//        } else {
-//            Toast.makeText(this, "Passwords dont match", Toast.LENGTH_SHORT).show()
-//        }
+    private fun checkUsername(): Boolean {
+        //check if username is in database
+        return true
+    }
 
+    private fun checkPassword(): Boolean {
+        val password = findViewById<TextInputEditText>(R.id.regPasswordEditTextId).text.toString()
 
+        if (!checkComplexity(password))
+            return false
+
+        val repeatedPassword = findViewById<TextInputEditText>(R.id.regRepeatPasswordEditTextId).text.toString()
+
+        if (!checkMatching(password, repeatedPassword))
+            return false
+
+        return true
+    }
+
+    private fun checkComplexity(password: String): Boolean {
+        val errorMessage = findViewById<TextView>(R.id.regComplexityErrorTextId)
+
+        return if (!isPasswordComplexEnough(password)) {
+            errorMessage.setText(R.string.register_screen_complexity_error_message)
+            false
+        } else {
+            errorMessage.setText(R.string.empty_string)
+            true
+        }
+    }
+
+    private fun isPasswordComplexEnough(password: String): Boolean {
+        // regular expression for validating password
+        val regex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]{8,}$".toRegex()
+        return password.matches(regex)
+    }
+
+    private fun checkMatching(password: String, repeatedPassword: String): Boolean {
+        val errorMessage = findViewById<TextView>(R.id.regMatchingErrorTextId)
+
+        return if (password != repeatedPassword) {
+            errorMessage.setText(R.string.register_screen_matching_error_message)
+            false
+        } else {
+            errorMessage.setText(R.string.empty_string)
+            true
+        }
     }
 
 
