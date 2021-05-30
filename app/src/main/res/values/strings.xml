@@ -17,7 +17,6 @@
     <string name="login_screen_button_text">Sing In</string>
     <string name="login_screen_forgot_password">Forgot password?</string>
 
-
     <!-- Strings used for register screen -->
     <string name="register_screen_main_text">Register</string>
     <string name="register_screen_repeat_password_hint">Repeat password</string>
@@ -27,9 +26,10 @@
     <string name="register_screen_complexity_error_message">Minimum eight characters, at least one uppercase, one lowercase letter and one number</string>
     <string name="register_screen_matching_error_message">Passwords must match!</string>
 
-
-    <string name="title_activity_to_do_list">ToDoListActivity</string>
     <!-- Strings used for fragments for navigation -->
-
+    <string name="navigation_home_button">Home</string>
+    <string name="navigation_calendar_button">Calendar</string>
+    <string name="navigation_todo_button">To do list</string>
+    <string name="navigation_notes_button">Notes</string>
 
 </resources>

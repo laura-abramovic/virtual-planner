@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navHomeId"
+        android:icon="@drawable/ic_baseline_home"
+        android:title="@string/navigation_home_button"/>
+
+    <item
+        android:id="@+id/navCalendarId"
+        android:icon="@drawable/ic_baseline_calendar"
+        android:title="@string/navigation_calendar_button"/>
+
+    <item
+        android:id="@+id/navTodoId"
+        android:icon="@drawable/ic_baseline_to_do_list"
+        android:title="@string/navigation_todo_button"/>
+
+    <item
+        android:id="@+id/navNotesId"
+        android:icon="@drawable/ic_baseline_sticky_note"
+        android:title="@string/navigation_notes_button"/>
+
+</menu>
