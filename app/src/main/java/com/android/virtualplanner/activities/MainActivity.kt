@@ -1,13 +1,12 @@
-package com.android.virtualplanner
+package com.android.virtualplanner.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
-import android.widget.Toast
-import com.android.virtualplanner.entry.LoginActivity
-import com.android.virtualplanner.entry.RegisterActivity
-import com.android.virtualplanner.visuals.ToDoListActivity
+import com.android.virtualplanner.R
+import com.android.virtualplanner.activities.entry.LoginActivity
+import com.android.virtualplanner.activities.entry.RegisterActivity
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

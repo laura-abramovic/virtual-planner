@@ -7,7 +7,6 @@
     <!-- Strings used for home screen -->
     <string name="home_screen_button_login">Login</string>
     <string name="home_screen_button_register">Register</string>
-    <string name="home_screen_button_start">Get started!</string>
 
     <!-- Strings used for login screen -->
     <string name="login_screen_main_text">Login</string>
@@ -21,8 +20,6 @@
 
     <!-- Strings used for register screen -->
     <string name="register_screen_main_text">Register</string>
-    <string name="register_screen_username_hint">Username</string>
-    <string name="register_screen_password_hint">Password</string>
     <string name="register_screen_repeat_password_hint">Repeat password</string>
     <string name="register_screen_bottom_text">Already have an account?</string>
     <string name="register_screen_bottom_link">Sing In</string>
@@ -30,19 +27,9 @@
     <string name="register_screen_complexity_error_message">Minimum eight characters, at least one uppercase, one lowercase letter and one number</string>
     <string name="register_screen_matching_error_message">Passwords must match!</string>
 
-    <string name="to_do_list_title">To-do list</string>
-
 
     <string name="title_activity_to_do_list">ToDoListActivity</string>
     <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
-
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
-
 
 
 </resources>

@@ -1,4 +1,4 @@
-package com.android.virtualplanner.entry
+package com.android.virtualplanner.activities.entry
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
