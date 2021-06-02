@@ -9,8 +9,8 @@ import java.time.Duration
 data class ScheduleItem (
     @PrimaryKey(autoGenerate = true) val id: Long,
     var title: String,
-    var duration: Duration,
+    var duration: String,
     var fixed: Boolean,
-    var timeStart: Time?,
+    var timeStart: String?,
     val scheduleId: Long // id of the schedule
 )

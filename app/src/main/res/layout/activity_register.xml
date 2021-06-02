@@ -28,12 +28,23 @@
         android:layout_height="wrap_content">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/regUsernameEditTextId"
             android:singleLine="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             />
 
     </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/regUsernameErrorTextId"
+        android:textColor="@color/error_main"
+        android:text="@string/empty_string"
+        android:textSize="11dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/regUsernameTextFieldId"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/regPasswordTextFieldId"

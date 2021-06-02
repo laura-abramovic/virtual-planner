@@ -6,10 +6,16 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import androidx.lifecycle.lifecycleScope
 import com.android.virtualplanner.R
+import com.android.virtualplanner.database.UserDatabase
 import com.google.android.material.textfield.TextInputEditText
+import kotlinx.coroutines.launch
 
 class RegisterActivity : AppCompatActivity() {
+    private var inputUsername: String = ""
+    //private val dao = UserDatabase.getInstance(this).userDao
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         hideActionBar()
@@ -18,10 +24,14 @@ class RegisterActivity : AppCompatActivity() {
         val singUpButton = findViewById<Button>(R.id.regSingUpButtonId)
         val singInLink = findViewById<TextView>(R.id.regBottomLinkId)
 
+        Toast.makeText(this, "You are now singed up", Toast.LENGTH_SHORT).show()
+
         singUpButton.setOnClickListener {
-            if (checkInput()) {
-                Toast.makeText(this, "You are now singed up", Toast.LENGTH_SHORT).show()
-            }
+//            lifecycleScope.launch {
+//                if (checkInput()) {
+//                    //Toast.makeText(this, "You are now singed up", Toast.LENGTH_SHORT).show()
+//                }
+//            }
         }
 
         singInLink.setOnClickListener {
@@ -36,13 +46,41 @@ class RegisterActivity : AppCompatActivity() {
         } catch (e: NullPointerException) {}
     }
 
-    private fun checkInput(): Boolean {
-        return checkUsername() && checkPassword()
+//    private suspend fun checkInput(): Boolean {
+//        return checkUsername() && checkPassword()
+//    }
+
+//    private suspend fun checkUsername(): Boolean {
+//        inputUsername = findViewById<TextInputEditText>(R.id.regUsernameEditTextId).text.toString()
+//        return !isInDatabase(inputUsername) && isValid(inputUsername)
+//    }
+
+//    private suspend fun isInDatabase(username: String): Boolean {
+//        val users = dao.getUsers()
+//
+//        for (user in users) {
+//            if (user.username == username)
+//                return false
+//        }
+//        return true
+//    }
+
+    private fun isValid(username: String): Boolean {
+        val errorMessage = findViewById<TextView>(R.id.regUsernameErrorTextId)
+
+        return if (!isUsernameComplexEnough(username)) {
+            errorMessage.setText(R.string.register_screen_username_error_message)
+            false
+        } else {
+            errorMessage.setText(R.string.empty_string)
+            true
+        }
     }
 
-    private fun checkUsername(): Boolean {
-        //check if username is in database
-        return true
+    private fun isUsernameComplexEnough(username: String): Boolean {
+        // regular expression for validating username
+        val regex = "^(?=.{3,20}\$)(?![_0-9])(?!.*[_]{2})[a-zA-Z0-9_]+(?<![_])\$".toRegex()
+        return username.matches(regex)
     }
 
     private fun checkPassword(): Boolean {
@@ -88,6 +126,4 @@ class RegisterActivity : AppCompatActivity() {
             true
         }
     }
-
-
 }

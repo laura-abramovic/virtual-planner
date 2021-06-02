@@ -23,6 +23,7 @@
     <string name="register_screen_bottom_text">Already have an account?</string>
     <string name="register_screen_bottom_link">Sing In</string>
     <string name="register_screen_button_text">Sing Up</string>
+    <string name="register_screen_username_error_message">Username should have between 3 and 20 characters, can contain letters, numbers and _</string>
     <string name="register_screen_complexity_error_message">Minimum eight characters, at least one uppercase, one lowercase letter and one number</string>
     <string name="register_screen_matching_error_message">Passwords must match!</string>
 
