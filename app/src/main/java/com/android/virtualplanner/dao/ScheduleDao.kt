@@ -4,8 +4,8 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Transaction
-import com.android.virtualplanner.data.ScheduleItem
-import com.android.virtualplanner.data.ScheduleWithScheduleItems
+import com.android.virtualplanner.entities.ScheduleItem
+import com.android.virtualplanner.entities.relations.ScheduleWithScheduleItems
 
 interface ScheduleDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)

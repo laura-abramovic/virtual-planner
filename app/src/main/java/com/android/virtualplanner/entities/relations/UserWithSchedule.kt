@@ -1,7 +1,9 @@
-package com.android.virtualplanner.data
+package com.android.virtualplanner.entities.relations
 
 import androidx.room.Embedded
 import androidx.room.Relation
+import com.android.virtualplanner.entities.Schedule
+import com.android.virtualplanner.entities.User
 
 data class UserWithSchedule (
     @Embedded
