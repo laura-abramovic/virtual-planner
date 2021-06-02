@@ -7,19 +7,24 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
+import androidx.room.Dao
+import androidx.room.Database
 import com.android.virtualplanner.R
+import com.android.virtualplanner.dao.UserDao
 import com.android.virtualplanner.database.UserDatabase
 import com.google.android.material.textfield.TextInputEditText
 import kotlinx.coroutines.launch
 
 class RegisterActivity : AppCompatActivity() {
     private var inputUsername: String = ""
-    //private val dao = UserDatabase.getInstance(this).userDao
+    private lateinit var dao: UserDao
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         hideActionBar()
         setContentView(R.layout.activity_register)
+
+        dao = UserDatabase.getInstance(this).userDao
 
         val singUpButton = findViewById<Button>(R.id.regSingUpButtonId)
         val singInLink = findViewById<TextView>(R.id.regBottomLinkId)
@@ -27,11 +32,14 @@ class RegisterActivity : AppCompatActivity() {
         Toast.makeText(this, "You are now singed up", Toast.LENGTH_SHORT).show()
 
         singUpButton.setOnClickListener {
-//            lifecycleScope.launch {
-//                if (checkInput()) {
-//                    //Toast.makeText(this, "You are now singed up", Toast.LENGTH_SHORT).show()
-//                }
-//            }
+            var isValidInput = false
+            lifecycleScope.launch {
+                checkInput()
+            }
+//            if (isValidInput)
+//                Toast.makeText(this, "You are now singed up", Toast.LENGTH_SHORT).show()
+//            else
+//                Toast.makeText(this, "You are not singed up", Toast.LENGTH_SHORT).show()
         }
 
         singInLink.setOnClickListener {
@@ -46,24 +54,24 @@ class RegisterActivity : AppCompatActivity() {
         } catch (e: NullPointerException) {}
     }
 
-//    private suspend fun checkInput(): Boolean {
-//        return checkUsername() && checkPassword()
-//    }
+    private suspend fun checkInput(): Boolean {
+        return checkUsername() && checkPassword()
+    }
 
-//    private suspend fun checkUsername(): Boolean {
-//        inputUsername = findViewById<TextInputEditText>(R.id.regUsernameEditTextId).text.toString()
-//        return !isInDatabase(inputUsername) && isValid(inputUsername)
-//    }
+    private suspend fun checkUsername(): Boolean {
+        inputUsername = findViewById<TextInputEditText>(R.id.regUsernameEditTextId).text.toString()
+        return !isInDatabase(inputUsername) && isValid(inputUsername)
+    }
 
-//    private suspend fun isInDatabase(username: String): Boolean {
-//        val users = dao.getUsers()
-//
-//        for (user in users) {
-//            if (user.username == username)
-//                return false
-//        }
-//        return true
-//    }
+    private suspend fun isInDatabase(username: String): Boolean {
+        val users = dao.getUsers()
+
+        for (user in users) {
+            if (user.username == username)
+                return false
+        }
+        return true
+    }
 
     private fun isValid(username: String): Boolean {
         val errorMessage = findViewById<TextView>(R.id.regUsernameErrorTextId)
