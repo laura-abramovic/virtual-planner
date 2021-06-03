@@ -6,17 +6,17 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
-import androidx.lifecycle.lifecycleScope
-import androidx.room.Dao
-import androidx.room.Database
 import com.android.virtualplanner.R
 import com.android.virtualplanner.dao.UserDao
 import com.android.virtualplanner.database.UserDatabase
+import com.android.virtualplanner.entities.User
 import com.google.android.material.textfield.TextInputEditText
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
+import org.mindrot.jbcrypt.BCrypt
 
 class RegisterActivity : AppCompatActivity() {
     private var inputUsername: String = ""
+    private var inputPassword: String = ""
     private lateinit var dao: UserDao
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,17 +29,13 @@ class RegisterActivity : AppCompatActivity() {
         val singUpButton = findViewById<Button>(R.id.regSingUpButtonId)
         val singInLink = findViewById<TextView>(R.id.regBottomLinkId)
 
-        Toast.makeText(this, "You are now singed up", Toast.LENGTH_SHORT).show()
-
         singUpButton.setOnClickListener {
-            var isValidInput = false
-            lifecycleScope.launch {
-                checkInput()
+            var users = runBlocking { dao.getUsers() } // get users from database
+
+            if (checkInput(users)) {
+                saveUserToDb()
+                Toast.makeText(this, "You are now singed up", Toast.LENGTH_SHORT).show()
             }
-//            if (isValidInput)
-//                Toast.makeText(this, "You are now singed up", Toast.LENGTH_SHORT).show()
-//            else
-//                Toast.makeText(this, "You are not singed up", Toast.LENGTH_SHORT).show()
         }
 
         singInLink.setOnClickListener {
@@ -54,29 +50,35 @@ class RegisterActivity : AppCompatActivity() {
         } catch (e: NullPointerException) {}
     }
 
-    private suspend fun checkInput(): Boolean {
-        return checkUsername() && checkPassword()
+    private fun checkInput(users: List<User>): Boolean {
+        return checkUsername(users) && checkPassword()
     }
 
-    private suspend fun checkUsername(): Boolean {
+    private fun checkUsername(users: List<User>): Boolean {
         inputUsername = findViewById<TextInputEditText>(R.id.regUsernameEditTextId).text.toString()
-        return !isInDatabase(inputUsername) && isValid(inputUsername)
+        return !isInDatabase(inputUsername, users) && isValid(inputUsername)
     }
 
-    private suspend fun isInDatabase(username: String): Boolean {
-        val users = dao.getUsers()
+    private fun isInDatabase(username: String, users: List<User>): Boolean {
+        val errorMessage = findViewById<TextView>(R.id.regUsernameErrorTextId)
 
         for (user in users) {
             if (user.username == username)
-                return false
+                errorMessage.setText(R.string.register_screen_username_already_exists_message)
+                return true
         }
-        return true
+
+        errorMessage.setText(R.string.empty_string)
+        return false
     }
 
     private fun isValid(username: String): Boolean {
         val errorMessage = findViewById<TextView>(R.id.regUsernameErrorTextId)
 
-        return if (!isUsernameComplexEnough(username)) {
+        return if (username.isEmpty()) {
+            errorMessage.setText(R.string.register_screen_username_cannot_be_empty_message)
+            false
+        } else if (!isUsernameComplexEnough(username)) {
             errorMessage.setText(R.string.register_screen_username_error_message)
             false
         } else {
@@ -102,6 +104,7 @@ class RegisterActivity : AppCompatActivity() {
         if (!checkMatching(password, repeatedPassword))
             return false
 
+        inputPassword = password
         return true
     }
 
@@ -133,5 +136,11 @@ class RegisterActivity : AppCompatActivity() {
             errorMessage.setText(R.string.empty_string)
             true
         }
+    }
+
+    private fun saveUserToDb() {
+        val passwordHash = BCrypt.hashpw(inputPassword, BCrypt.gensalt())
+        val user = User(inputUsername, passwordHash)
+        runBlocking { dao.insertUser(user) }
     }
 }
