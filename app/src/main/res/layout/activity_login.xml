@@ -58,15 +58,15 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
-        android:id="@+id/loginForgotPasswordTextId"
+        android:id="@+id/loginErrorId"
+        android:textColor="@color/error_main"
+        android:text="@string/empty_string"
+        android:textSize="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="14dp"
         android:layout_below="@id/loginPasswordTextFieldId"
-        android:text="@string/login_screen_forgot_password"
-        android:layout_alignRight="@id/loginPasswordTextFieldId"
-        android:textSize="18dp"
-        android:layout_marginTop="10dp"
-        android:textColor="@color/link_main"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content" />
 
     <Button
         android:id="@+id/loginSingInButtonId"

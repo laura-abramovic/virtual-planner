@@ -15,7 +15,7 @@
     <string name="login_screen_bottom_text">Don\'t have an account?</string>
     <string name="login_screen_bottom_link">Sing Up</string>
     <string name="login_screen_button_text">Sing In</string>
-    <string name="login_screen_forgot_password">Forgot password?</string>
+    <string name="login_screen_error">Username or password invalid</string>
 
     <!-- Strings used for register screen -->
     <string name="register_screen_main_text">Register</string>
