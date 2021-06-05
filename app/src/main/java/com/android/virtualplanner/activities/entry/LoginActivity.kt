@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.android.virtualplanner.R
+import com.android.virtualplanner.activities.visuals.MainScreenActivity
 import com.android.virtualplanner.dao.UserDao
 import com.android.virtualplanner.database.UserDatabase
 import com.android.virtualplanner.entities.User
@@ -23,7 +24,6 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        hideActionBar()
         setContentView(R.layout.activity_login)
 
         val singInButton = findViewById<Button>(R.id.loginSingInButtonId)
@@ -40,6 +40,10 @@ class LoginActivity : AppCompatActivity() {
             } else {
                 error.setText(R.string.empty_string)
                 Toast.makeText(this, "You are now singed in", Toast.LENGTH_SHORT).show()
+
+                val intent = Intent(this, MainScreenActivity::class.java)
+                intent.putExtra("username", inputUsername)
+                startActivity(intent)
             }
 
 
@@ -49,12 +53,6 @@ class LoginActivity : AppCompatActivity() {
             val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
         }
-    }
-
-    private fun hideActionBar() {
-        try {
-            this.supportActionBar!!.hide()
-        } catch (e: NullPointerException) {}
     }
 
     private  fun isCorrectInput(users: List<User>): Boolean {

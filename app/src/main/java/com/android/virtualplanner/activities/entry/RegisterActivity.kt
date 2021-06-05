@@ -21,7 +21,6 @@ class RegisterActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        hideActionBar()
         setContentView(R.layout.activity_register)
 
         dao = UserDatabase.getInstance(this).userDao
@@ -42,12 +41,6 @@ class RegisterActivity : AppCompatActivity() {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
-    }
-
-    private fun hideActionBar() {
-        try {
-            this.supportActionBar!!.hide()
-        } catch (e: NullPointerException) {}
     }
 
     private fun checkInput(users: List<User>): Boolean {
