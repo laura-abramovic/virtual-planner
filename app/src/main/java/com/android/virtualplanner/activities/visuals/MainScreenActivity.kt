@@ -28,23 +28,32 @@ class MainScreenActivity : AppCompatActivity() {
         val bottomNav = findViewById<BottomNavigationView>(R.id.bottom_navigation)
 
         // the first fragment that will be shown
-        var fragment: Fragment
-        fragment = HomeFragment()
-        supportFragmentManager.beginTransaction().replace(R.id.fragment_container, fragment, fragment.javaClass.simpleName)
-                .commit()
+        startFragment(R.id.navHomeId)
 
         bottomNav.setOnNavigationItemSelectedListener { item ->
-            fragment = createFragment(item.itemId)
-            supportFragmentManager.beginTransaction().replace(R.id.fragment_container, fragment, fragment.javaClass.simpleName)
-                    .commit()
+            startFragment(item.itemId)
             true
         }
-
     }
 
     private fun displayUsername() {
         val usernameDisplay = findViewById<TextView>(R.id.usernameDisplayId)
         usernameDisplay.text = this.username
+    }
+
+    private fun startFragment(id: Int) {
+        val fragment = createFragment(id)
+        passBundle(fragment)
+        supportFragmentManager.beginTransaction().replace(R.id.fragment_container, fragment, fragment.javaClass.simpleName)
+                .commit()
+    }
+
+    private fun passBundle(fragment: Fragment): Fragment {
+        val bundle = Bundle().apply {
+            putString("username", username)
+        }
+        fragment.arguments = bundle
+        return fragment
     }
 
     private fun createFragment(id: Int): Fragment {
@@ -67,5 +76,7 @@ class MainScreenActivity : AppCompatActivity() {
         }
         return fragment
     }
+
+
 
 }
