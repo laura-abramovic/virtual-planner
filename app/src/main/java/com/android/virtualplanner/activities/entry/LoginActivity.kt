@@ -13,6 +13,7 @@ import com.android.virtualplanner.activities.visuals.MainScreenActivity
 import com.android.virtualplanner.dao.UserDao
 import com.android.virtualplanner.database.UserDatabase
 import com.android.virtualplanner.entities.User
+import com.android.virtualplanner.preferences.AppPreferences
 import com.google.android.material.textfield.TextInputEditText
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
@@ -41,12 +42,13 @@ class LoginActivity : AppCompatActivity() {
                 error.setText(R.string.empty_string)
                 Toast.makeText(this, "You are now singed in", Toast.LENGTH_SHORT).show()
 
+                //set username as preference
+                AppPreferences.isLoggedIn = true
+                AppPreferences.username = inputUsername
+
                 val intent = Intent(this, MainScreenActivity::class.java)
-                intent.putExtra("username", inputUsername)
                 startActivity(intent)
             }
-
-
         }
 
         singUpLink.setOnClickListener {
@@ -55,7 +57,7 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    private  fun isCorrectInput(users: List<User>): Boolean {
+    private fun isCorrectInput(users: List<User>): Boolean {
         inputUsername = findViewById<TextInputEditText>(R.id.loginUsernameEditTextId).text.toString()
 
         for (user in users) {
@@ -67,5 +69,6 @@ class LoginActivity : AppCompatActivity() {
 
         return false
     }
+
 
 }

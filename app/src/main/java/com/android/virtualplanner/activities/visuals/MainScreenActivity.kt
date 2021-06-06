@@ -11,6 +11,7 @@ import com.android.virtualplanner.fragments.CalendarFragment
 import com.android.virtualplanner.fragments.HomeFragment
 import com.android.virtualplanner.fragments.NotesFragment
 import com.android.virtualplanner.fragments.TodoFragment
+import com.android.virtualplanner.preferences.AppPreferences
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import java.util.*
 
@@ -22,7 +23,7 @@ class MainScreenActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_screen)
 
-        username = intent.getStringExtra("username").toString()
+        username = AppPreferences.username
         displayUsername()
 
         val bottomNav = findViewById<BottomNavigationView>(R.id.bottom_navigation)
@@ -43,7 +44,7 @@ class MainScreenActivity : AppCompatActivity() {
 
     private fun startFragment(id: Int) {
         val fragment = createFragment(id)
-        passBundle(fragment)
+       // passBundle(fragment)
         supportFragmentManager.beginTransaction().replace(R.id.fragment_container, fragment, fragment.javaClass.simpleName)
                 .commit()
     }
