@@ -35,5 +35,9 @@
     <string name="navigation_todo_button">To do list</string>
     <string name="navigation_notes_button">Notes</string>
 
+    <!-- Strings used for drop-down menu -->
+    <string name="menu_profile">Profile</string>
+    <string name="menu_settings">Settings</string>
+    <string name="menu_logout">Log out</string>
 
 </resources>

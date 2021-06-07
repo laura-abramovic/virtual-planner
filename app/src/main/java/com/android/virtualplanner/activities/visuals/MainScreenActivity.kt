@@ -1,11 +1,21 @@
 package com.android.virtualplanner.activities.visuals
 
+import android.app.Activity
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.ContactsContract
+import android.view.MenuItem
+import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.widget.PopupMenu
 import androidx.fragment.app.Fragment
 import com.android.virtualplanner.R
+import com.android.virtualplanner.activities.MainActivity
+import com.android.virtualplanner.activities.menu.ProfileActivity
+import com.android.virtualplanner.activities.menu.SettingsActivity
 import com.android.virtualplanner.dao.UserDao
 import com.android.virtualplanner.fragments.CalendarFragment
 import com.android.virtualplanner.fragments.HomeFragment
@@ -16,7 +26,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import java.util.*
 
 class MainScreenActivity : AppCompatActivity() {
-    var username: String = ""
+    private var username: String = ""
+    private lateinit var menuButton: ImageButton
     private lateinit var dao: UserDao
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,8 +35,68 @@ class MainScreenActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main_screen)
 
         username = AppPreferences.username
-        displayUsername()
 
+        initTopMenu()
+        initFragments()
+    }
+
+    private fun initTopMenu() {
+        displayUsername()
+        createPopupMenu()
+    }
+
+    private fun displayUsername() {
+        val usernameDisplay = findViewById<TextView>(R.id.usernameDisplayId)
+        usernameDisplay.text = this.username
+    }
+
+    private fun createPopupMenu() {
+        menuButton = findViewById(R.id.menuButtonImageId)
+        val popupMenu = PopupMenu(this, menuButton)
+        popupMenu.menuInflater.inflate(R.menu.popup_menu, popupMenu.menu)
+        setMenuListeners(popupMenu)
+
+        menuButton.setOnClickListener {
+            popupMenu.show()
+        }
+    }
+
+    private fun setMenuListeners(popupMenu: PopupMenu) {
+        popupMenu.setOnMenuItemClickListener { menuItem ->
+            var activity = chooseAction(menuItem.itemId)
+
+            val intent = Intent(this, activity!!::class.java)
+            startActivity(intent)
+
+            true
+        }
+    }
+
+    private fun chooseAction(id: Int): Activity? {
+        var activity: Activity? = null
+
+        when (id) {
+            R.id.menuProfileId -> {
+                activity = ProfileActivity()
+            }
+            R.id.menuSettingsId -> {
+                activity = SettingsActivity()
+            }
+            R.id.menuLogoutId -> {
+                clearPreferences()
+                activity = MainActivity()
+            }
+        }
+
+        return activity
+    }
+
+    private fun clearPreferences() {
+        AppPreferences.username = ""
+        AppPreferences.isLoggedIn = false
+    }
+
+    private fun initFragments() {
         val bottomNav = findViewById<BottomNavigationView>(R.id.bottom_navigation)
 
         // the first fragment that will be shown
@@ -37,24 +108,10 @@ class MainScreenActivity : AppCompatActivity() {
         }
     }
 
-    private fun displayUsername() {
-        val usernameDisplay = findViewById<TextView>(R.id.usernameDisplayId)
-        usernameDisplay.text = this.username
-    }
-
     private fun startFragment(id: Int) {
         val fragment = createFragment(id)
-       // passBundle(fragment)
         supportFragmentManager.beginTransaction().replace(R.id.fragment_container, fragment, fragment.javaClass.simpleName)
                 .commit()
-    }
-
-    private fun passBundle(fragment: Fragment): Fragment {
-        val bundle = Bundle().apply {
-            putString("username", username)
-        }
-        fragment.arguments = bundle
-        return fragment
     }
 
     private fun createFragment(id: Int): Fragment {
@@ -77,7 +134,4 @@ class MainScreenActivity : AppCompatActivity() {
         }
         return fragment
     }
-
-
-
 }
