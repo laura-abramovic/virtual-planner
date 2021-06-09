@@ -2,13 +2,47 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/background_main">
 
-    <TextView
-        android:text="Notes fragment"
+    <RelativeLayout
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/notesNoTextId"
+            android:text="@string/notes_you_dont_have_notes"
+            android:textColor="@color/text_main"
+            android:textSize="20dp"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/notesAddButtonId"
+            style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
+            app:cornerRadius="28dp"
+            android:layout_below="@id/notesNoTextId"
+            android:layout_centerHorizontal="true"
+            android:text="+"
+            android:textSize="20dp"
+            android:layout_marginTop="60dp"
+            android:layout_width="56dp"
+            android:layout_height="56dp" />
+
+        <TextView
+            android:id="@+id/notesAddTextId"
+            android:text="@string/notes_add_note"
+            android:textColor="@color/text_main"
+            android:textSize="20dp"
+            android:layout_below="@id/notesAddButtonId"
+            android:layout_marginTop="10dp"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
 
 </RelativeLayout>

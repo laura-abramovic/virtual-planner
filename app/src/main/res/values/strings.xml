@@ -40,4 +40,8 @@
     <string name="menu_settings">Settings</string>
     <string name="menu_logout">Log out</string>
 
+    <!-- Strings used for notes fragment -->
+    <string name="notes_you_dont_have_notes">You do not have any notes yet</string>
+    <string name="notes_add_note">Add note</string>
+
 </resources>
