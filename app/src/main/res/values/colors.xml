@@ -15,4 +15,6 @@
 
     <color name="link_main">#0000EE</color>
     <color name="error_main">#E1341E</color>
+
+    <color name="transparent">#00000000</color>
 </resources>

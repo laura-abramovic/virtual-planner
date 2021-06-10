@@ -4,8 +4,20 @@
     android:layout_height="match_parent"
     android:background="@color/background_main">
 
+    <ImageButton
+        android:id="@+id/todoAddImageButtonId"
+        android:background="@color/transparent"
+        android:layout_margin="20dp"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/ic_baseline_add"
+        android:layout_width="40dp"
+        android:layout_height="40dp"/>
+
     <TextView
-        android:text="To do list fragment"
+        android:id="@+id/todoNoRemindersTextId"
+        android:text="@string/todo_no_tasks"
+        android:textSize="20dp"
+        android:textColor="@color/text_main"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:layout_width="wrap_content"

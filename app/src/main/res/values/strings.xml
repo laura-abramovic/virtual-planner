@@ -3,6 +3,7 @@
 
     <!-- Strings used for multiple screens -->
     <string name="empty_string"></string>
+    <string name="save">Save</string>
 
     <!-- Strings used for home screen -->
     <string name="home_screen_button_login">Login</string>
@@ -43,5 +44,10 @@
     <!-- Strings used for notes fragment -->
     <string name="notes_you_dont_have_notes">You do not have any notes yet</string>
     <string name="notes_add_note">Add note</string>
+
+    <!-- Strings used for to do fragment -->
+    <string name="todo_no_tasks">No reminders</string>
+    <string name="todo_popup_add_tasks">Add new reminder</string>
+    <string name="todo_popup_hint">Enter reminder</string>
 
 </resources>
