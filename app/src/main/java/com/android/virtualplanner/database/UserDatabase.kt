@@ -6,6 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.android.virtualplanner.dao.UserDao
 import com.android.virtualplanner.entities.*
+import com.android.virtualplanner.fragments.TodoFragment
 
 @Database(
     entities = [
@@ -13,6 +14,7 @@ import com.android.virtualplanner.entities.*
         Calendar::class,
         CalendarDay::class,
         Note::class,
+        ToDoItem::class,
         Schedule::class,
         ScheduleItem::class
     ],

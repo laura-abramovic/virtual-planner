@@ -2,10 +2,7 @@ package com.android.virtualplanner.dao
 
 import androidx.room.*
 import com.android.virtualplanner.entities.*
-import com.android.virtualplanner.entities.relations.ScheduleWithScheduleItems
-import com.android.virtualplanner.entities.relations.UserAndCalendar
-import com.android.virtualplanner.entities.relations.UserWithNotes
-import com.android.virtualplanner.entities.relations.UserWithSchedule
+import com.android.virtualplanner.entities.relations.*
 
 @Dao
 interface UserDao {
@@ -20,6 +17,9 @@ interface UserDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertNote(note: Note)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertToDoItem(item: ToDoItem)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertSchedule(schedule: Schedule)
@@ -41,9 +41,13 @@ interface UserDao {
 
     @Transaction
     @Query("SELECT * FROM user WHERE username = :username" )
-    suspend fun getUserWithSchedule(username: String): List<UserWithSchedule>
+    suspend fun getUserWithTodos(username: String): List<UserWithTodos>
 
     @Transaction
-    @Query("SELECT * FROM schedule WHERE id = :id" )
-    suspend fun getUserWithNotes(id: Long): List<ScheduleWithScheduleItems>
+    @Query("SELECT * FROM user WHERE username = :username" )
+    suspend fun getUserWithSchedule(username: String): List<UserWithSchedule>
+
+    //@Transaction
+    //@Query("SELECT * FROM schedule WHERE id = :id" )
+    //suspend fun getUserWithNotes(id: Long): List<ScheduleWithScheduleItems>
 }

@@ -10,8 +10,7 @@ object AppPreferences {
     private lateinit var preferences: SharedPreferences
 
     private val IS_LOGGED_IN = Pair("is_logged_in", false)
-    private val USERNAME = Pair("username", "");
-    private val PASSWORD = Pair("password", "")
+    private val USERNAME = Pair("username", "")
 
     fun init(context: Context) {
         preferences = context.getSharedPreferences(NAME, MODE)
@@ -34,11 +33,5 @@ object AppPreferences {
         get() = preferences.getString(USERNAME.first, USERNAME.second) ?: ""
         set(value) = preferences.edit {
             it.putString(USERNAME.first, value)
-        }
-
-    var password: String
-        get() = preferences.getString(PASSWORD.first, PASSWORD.second) ?: ""
-        set(value) = preferences.edit {
-            it.putString(PASSWORD.first, value)
         }
 }
