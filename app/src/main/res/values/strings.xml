@@ -44,10 +44,16 @@
     <!-- Strings used for notes fragment -->
     <string name="notes_you_dont_have_notes">You do not have any notes yet</string>
     <string name="notes_add_note">Add note</string>
+    <string name="note_popup_add_note">Add new note</string>
+    <string name="note_popup_hint">Enter notes title</string>
+    <string name="note_popup_text_hint">Enter notes content</string>
+
 
     <!-- Strings used for to do fragment -->
     <string name="todo_no_tasks">No reminders</string>
     <string name="todo_popup_add_tasks">Add new reminder</string>
     <string name="todo_popup_hint">Enter reminder</string>
+
+
 
 </resources>

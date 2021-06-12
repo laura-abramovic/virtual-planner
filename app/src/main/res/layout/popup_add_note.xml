@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <RelativeLayout
+            android:padding="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/popupNoteMainTitleId"
+                android:text="@string/note_popup_add_note"
+                android:layout_centerHorizontal="true"
+                android:textSize="20dp"
+                android:textStyle="italic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:id="@+id/popupNoteTitleId"
+                android:layout_marginTop="30dp"
+                android:textSize="24dp"
+                android:textColorHighlight="@color/button_main"
+                android:layout_below="@id/popupNoteMainTitleId"
+                android:hint="@string/note_popup_hint"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:id="@+id/popupNoteTextInputId"
+                android:layout_weight="1"
+                android:padding="4dp"
+                android:layout_below="@id/popupNoteTitleId"
+                android:hint="@string/note_popup_text_hint"
+                android:background="@drawable/edit_text_background"
+                android:gravity="top|left"
+                android:scrollbars="vertical"
+                android:scrollHorizontally="false"
+                android:outlineProvider="background"
+                android:inputType="textCapSentences|textMultiLine"
+                android:maxLength="2000"
+                android:maxLines="20"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"/>
+
+            <Button
+                android:id="@+id/popupTodoSaveButtonId"
+                android:layout_marginTop="20dp"
+                android:text="@string/save"
+                android:textColor="@color/text_main"
+                android:backgroundTint="@color/background_main"
+                android:layout_below="@id/popupNoteTextInputId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+
+        </RelativeLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

@@ -53,7 +53,7 @@ class TodoFragment : Fragment() {
         saveButton = view.findViewById(R.id.popupTodoSaveButtonId)
 
         saveButton.setOnClickListener {
-            saveNote()
+            saveToDoItem()
         }
 
         dialogBuilder.setView(view)
@@ -61,7 +61,7 @@ class TodoFragment : Fragment() {
         dialog.show()
     }
 
-    private fun saveNote() {
+    private fun saveToDoItem() {
         var todoText = inputItem.text.toString()
 
         if (todoText.isEmpty()) {
