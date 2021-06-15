@@ -2,14 +2,10 @@ package com.android.virtualplanner.activities.visuals
 
 import android.app.Activity
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.ContactsContract
-import android.view.MenuItem
 import android.widget.ImageButton
-import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.PopupMenu
 import androidx.fragment.app.Fragment
 import com.android.virtualplanner.R
@@ -23,7 +19,7 @@ import com.android.virtualplanner.fragments.NotesFragment
 import com.android.virtualplanner.fragments.TodoFragment
 import com.android.virtualplanner.preferences.AppPreferences
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import java.util.*
+
 
 class MainScreenActivity : AppCompatActivity() {
     private var username: String = ""
@@ -90,6 +86,7 @@ class MainScreenActivity : AppCompatActivity() {
 
         return activity
     }
+
 
     private fun clearPreferences() {
         AppPreferences.username = ""

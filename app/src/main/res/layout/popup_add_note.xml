@@ -35,6 +35,7 @@
                 android:id="@+id/popupNoteTextInputId"
                 android:layout_weight="1"
                 android:padding="4dp"
+                android:layout_marginTop="10dp"
                 android:layout_below="@id/popupNoteTitleId"
                 android:hint="@string/note_popup_text_hint"
                 android:background="@drawable/edit_text_background"

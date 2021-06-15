@@ -5,6 +5,9 @@
     <string name="empty_string"></string>
     <string name="save">Save</string>
 
+    <!-- Strings used for toasts -->
+    <string name="toast_reminder_added">Reminder is added to list</string>
+
     <!-- Strings used for home screen -->
     <string name="home_screen_button_login">Login</string>
     <string name="home_screen_button_register">Register</string>
