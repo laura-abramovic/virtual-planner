@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/background_main">
 
     <ImageButton
@@ -23,9 +24,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
-    <ListView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/todoRwId"
         android:layout_below="@id/todoAddImageButtonId"
+        tools:listitem="@layout/list_row_todo"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
+<!--    <ListView-->
+<!--        android:layout_below="@id/todoAddImageButtonId"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent" />-->
 
 </RelativeLayout>

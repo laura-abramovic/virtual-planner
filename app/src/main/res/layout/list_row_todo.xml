@@ -5,6 +5,7 @@
     android:layout_height="wrap_content">
 
     <androidx.cardview.widget.CardView
+        android:background="@color/background_main"
         android:id="@+id/cardViewTodoId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">

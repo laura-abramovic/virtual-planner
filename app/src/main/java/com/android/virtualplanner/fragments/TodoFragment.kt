@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.android.virtualplanner.R
 import com.android.virtualplanner.adapters.CustomToDoListAdapter
 import com.android.virtualplanner.dao.UserDao
@@ -29,6 +30,7 @@ class TodoFragment : Fragment() {
     private lateinit var dao: UserDao
     private lateinit var username: String
 
+    private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: CustomToDoListAdapter
    // private lateinit var items: List<ToDoItem>
 
@@ -51,16 +53,15 @@ class TodoFragment : Fragment() {
             createPopupDialog()
         }
 
+        recyclerView = root.findViewById(R.id.todoRwId)
+        recyclerView.apply {
+            layoutManager = LinearLayoutManager(context)
+            adapter = CustomToDoListAdapter(items)
+        }
+
 
         return root
     }
-
-//    private fun initialize() {
-//        items = ArrayList<ToDoItem>()
-//        adapter = CustomToDoListAdapter(items!!)
-//
-//
-//    }
 
     private fun loadToDoItems(): List<ToDoItem> {
         var users =  runBlocking { dao.getUserWithTodos(username = username) }
@@ -97,15 +98,9 @@ class TodoFragment : Fragment() {
         var users =  runBlocking { dao.getUserWithTodos(username = username) }
         var items = users[0].todoItems
 
-//        Toast.makeText(activity, (users[0].todoItems.size).toString(), Toast.LENGTH_LONG).show()
-
-        //Uspjesno dobijam tekst
-        //Toast.makeText(activity, todoItems[0].todoItems.size, Toast.LENGTH_LONG).show()
-
-//        adapter!!.notifyDataSetChanged()
+        //adapter!!.notifyDataSetChanged()
 
         dialog.dismiss()
         Toast.makeText(activity, R.string.toast_reminder_added, Toast.LENGTH_SHORT)
-
     }
 }
