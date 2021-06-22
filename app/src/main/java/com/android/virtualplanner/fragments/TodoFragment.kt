@@ -32,7 +32,8 @@ class TodoFragment : Fragment() {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: CustomToDoListAdapter
-   // private lateinit var items: List<ToDoItem>
+
+    private lateinit var itemList: ArrayList<ToDoItem>
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         username = AppPreferences.username
@@ -43,9 +44,9 @@ class TodoFragment : Fragment() {
         noRemindersText = root.findViewById(R.id.todoNoRemindersTextId)
         imageAddButton = root.findViewById(R.id.todoAddImageButtonId)
 
-        var items = loadToDoItems()
+        loadToDoItems()
 
-        if (items.isNotEmpty()) {
+        if (itemList.isNotEmpty()) {
             noRemindersText.visibility = View.GONE
         }
 
@@ -56,16 +57,16 @@ class TodoFragment : Fragment() {
         recyclerView = root.findViewById(R.id.todoRwId)
         recyclerView.apply {
             layoutManager = LinearLayoutManager(context)
-            adapter = CustomToDoListAdapter(items)
+            adapter = CustomToDoListAdapter(itemList)
         }
 
 
         return root
     }
 
-    private fun loadToDoItems(): List<ToDoItem> {
+    private fun loadToDoItems() {
         var users =  runBlocking { dao.getUserWithTodos(username = username) }
-        return users[0].todoItems
+        itemList = users[0].todoItems as ArrayList<ToDoItem>
     }
 
     private fun createPopupDialog() {
@@ -95,10 +96,8 @@ class TodoFragment : Fragment() {
 
         runBlocking { dao.insertToDoItem(newToDoItem) }
 
-        var users =  runBlocking { dao.getUserWithTodos(username = username) }
-        var items = users[0].todoItems
-
-        //adapter!!.notifyDataSetChanged()
+        var index = itemList.size
+        itemList.add(index, newToDoItem)
 
         dialog.dismiss()
         Toast.makeText(activity, R.string.toast_reminder_added, Toast.LENGTH_SHORT)

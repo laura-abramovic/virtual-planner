@@ -27,6 +27,9 @@ interface UserDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertScheduleItem(scheduleItem: ScheduleItem)
 
+    @Delete
+    suspend fun deleteToDoItem(item: ToDoItem)
+
     @Transaction
     @Query("SELECT * FROM user")
     suspend fun getUsers(): List<User>

@@ -13,6 +13,7 @@ import com.android.virtualplanner.activities.MainActivity
 import com.android.virtualplanner.activities.menu.ProfileActivity
 import com.android.virtualplanner.activities.menu.SettingsActivity
 import com.android.virtualplanner.dao.UserDao
+import com.android.virtualplanner.database.UserDatabase
 import com.android.virtualplanner.fragments.CalendarFragment
 import com.android.virtualplanner.fragments.HomeFragment
 import com.android.virtualplanner.fragments.NotesFragment
@@ -24,12 +25,15 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 class MainScreenActivity : AppCompatActivity() {
     private var username: String = ""
     private lateinit var menuButton: ImageButton
+
     private lateinit var dao: UserDao
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_screen)
 
+        dao = UserDatabase.getInstance(this).userDao
         username = AppPreferences.username
 
         initTopMenu()
