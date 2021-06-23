@@ -27,10 +27,8 @@ class CustomToDoListAdapter(private val itemList: ArrayList<ToDoItem>): Recycler
 
         holder.view.findViewById<ImageButton>(R.id.listRowTodoDeleteButtonId).setOnClickListener {
 
-            //TODO: popraviti delete
-
-            itemList.removeAt(position)
-            notifyItemRemoved(position)
+            itemList.removeAt(holder.adapterPosition)
+            notifyItemRemoved(holder.adapterPosition)
         }
 
     }
